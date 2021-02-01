@@ -5,27 +5,39 @@
 <link rel="stylesheet" href="styles/style.css">
     </head>
 <body> 
-        <a href="#" class="btn btn--orange">Log Out</a>
+        <a href="#" class="btn btn--orange">Sign Up or Login</a>
 <div class="text-content">
     <h1 class="title">To Do List</h1>
-    <p class="description">This is a simple To Do List. Sign Up or Log In to continue.</p>
+    <p class="description">This is a simple To Do List.</p>
 </div>
-    <!-- sign up form-->
-    <form action="input">
-
-
-    </form>
-
-    <!-- Sign In form-->
-    <form action="input">
-
-    </form>
+    
 <section>
-    <h1>Your Dashboard</h1>
+    <h1 class="section-header">Your Dashboard</h1>
     <a href class="btn btn--orange btn--todo">Create New Todo List</a>
+
+    <div class="section-popup">
+
+       <p>
+        <label for="firstname">First Name: </label><input id="firstName" type="text" /> <br /> <br />
+        <label for="lastname">Last Name: </label><input id="lastName" type="text" /> <br /> <br />
+        <label for="email">Email: </label><input id="eMail" type="email" /> <br /> <br />
+        <label for="password">Password: </label><input id="passWord" type="password" /> <br /> <br />
+        <button id="submit">Submit</button>
+      </p>
+          
+      <p>
+          Your Name is <span id="outputFirstName">___</span>. The lastname is <span id="outputLastName">___</span>, email is <span id="outputeMail">___</span>, password is <span id="outputPassWord">___</span>
+      </p>
+
+    
+       
+                </div>
+            </div>
+        </form>
+    </div>
 </section>
     
-    
+
 
 
 
@@ -38,4 +50,5 @@
 
 
 </body>
+<script src="scripts/todo.js"></script>    
 </html>
