@@ -17,22 +17,11 @@
 
     <div class="section-popup">
 
-<div class="row" >
-    <div class="col-25">
-           <label for="firstname">First Name: </label>
-    </div>
-    <div class="col-30">
+       <p>
+        <label for="firstname">First Name: </label>
             <input id="firstName" type="text" /> <br /> <br />
-    </div>
-</div>
-<div class="row">
-    <div class="col-25">
         <label for="lastname">Last Name: </label>
-    </div>
-    <div class="col-30">
             <input id="lastName" type="text" /> <br /> <br />
-    </div>
-</div>
         <label for="email">Email: </label>
             <input id="eMail" type="email" /> <br /> <br />
         <label for="password">Password: </label>
