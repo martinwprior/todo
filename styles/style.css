@@ -135,3 +135,15 @@ input[type=text], select, textarea{
       margin-top: 0;
     }
   }
+
+  table, th, td {
+    border: 1px solid black;
+
+  }
+  table {
+    width:0rem; 
+    height:10rem; 
+    position:relative; 
+    top:200px; 
+    z-index:2;
+  }
