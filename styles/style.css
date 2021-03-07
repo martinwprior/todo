@@ -1,149 +1,76 @@
-.btn {
-    text-decoration: none;
-    font-size: 1.2rem;
-    color: #fff;
-    padding: .75rem 1.2rem;
-    box-align: center;
+* {
+  margin:0;
+  padding:0;
+  box-sizing: border-box;
 }
 
-.btn--orange {
-    background-color:orange;
-    display: inline-block;
-}
-.btn--todo{
-    text-align: center;
-    position: absolute;
-    left: 42rem;
-    top: 5rem;
+
+
+
+
+
+.wrapper-menu {
+   width: 750px;
+   margin-left: auto;
+   margin-right: auto;
+   border: solid 1px black;
+   display: block;
 
 }
-
-.text-content {
-    position: absolute;
-    top: 10%;
-    transform: translateY(-15%);
-    margin-left: 40%;
-    margin-right: 40%;
-    width: 100%;
-    box-align: center;
+h1{
+  text-align: center;
+  font-weight:800;
+  color: black;
+  font-size: 4.8rem;
+  padding-top: 100px
 }
-.title {
-font-weight:300;
-color: black;
-font-size: 4.8rem;
-margin: 0;
-
+.description{
+  text-align: center;
+  font-size: 2.4rem;
 }
 
-.description {
-    color: black;
-    font-weight: 100;
-    text-shadow: 2px 2px 0 rgba(0,0,0,.1);
-    font-size: 2rem;
+/* center the buttons */
+.center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px; 
+justify-content: space-around;
+}
+.btn--orange{
+  padding: 15px 25px;
+  background-color: orange;
+  border: none;
+  font-size: 18px;
+  font-weight: bold;
+}
+.btn:hover, btn:focus {
+  background-color: green;
 }
 
-section {
-    position: absolute;
-    top: 15rem;
-    left: 10rem;
-    bottom: 2rem;
-    background-color: red;
-    width: 80%
+
+
+
+/* Add padding to container elements */
+.wrapper-signup {
+  display: none;
+  padding: 16px;
 }
-.section-header {
-    position: Absolute;
-    top: -.5rem;
-    left: 40rem;
-    padding: .5rem;
-    font-size: 2.4rem;
+.wrapper-login{
+  display: none;
+  padding: 16px;
 }
 
-.section-popup{
-    background-color: white; 
-    width:70rem; 
-    height:30rem; 
-    position:relative; 
-    top:10px; 
-    left:12rem; 
-    z-index:2;
-}
-.section-popup li {
-    padding: 1rem;
-    font-size: 1.2rem;
+/* Clear floats */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
-/* Style inputs, select elements and textareas */
-input[type=text], select, textarea{
-    width: 100%;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-    box-sizing: border-box;
-    resize: vertical;
+/* Change styles for cancel button and signup button on extra small screens */
+@media screen and (max-width: 300px) {
+  .cancelbtn, .signupbtn {
+     width: 100%;
   }
-  
-  /* Style the label to display next to the inputs */
-  label {
-    padding: 12px 12px 12px 0;
-    display: inline-block;
-  }
-  
-  /* Style the submit button */
-  input[type=submit] {
-    background-color: #4CAF50;
-    color: white;
-    padding: 12px 20px;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    float: right;
-  }
-  
-  /* Style the container */
-  .container {
-    border-radius: 5px;
-    background-color: #f2f2f2;
-    padding: 20px;
-  }
-  
-  /* Floating column for labels: 25% width */
-  .col-25 {
-    float: left;
-    width: 25%;
-    margin-top: 6px;
-    padding-left: 20px
-  }
-  
-  /* Floating column for inputs: 75% width */
-  .col-30 {
-    float: left;
-    width: 30%;
-    margin-top: 6px;
-  }
-  
-  /* Clear floats after the columns */
-  .row:after {
-    content: "";
-    display: table;
-    clear: both;
-  }
-  
-  /* Responsive layout - when the screen is less than 600px wide, make the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
-    .col-25, .col-75, input[type=submit] {
-      width: 100%;
-      margin-top: 0;
-    }
-  }
-
-  table, th, td {
-    border: 1px solid black;
-
-  }
-  table {
-    width:0rem; 
-    height:10rem; 
-    position:relative; 
-    top:200px; 
-    z-index:2;
-  }
+}

@@ -5,86 +5,19 @@
 <link rel="stylesheet" href="styles/style.css">
     </head>
 <body> 
-        <a href="#" class="btn btn--orange">Sign Up or Login</a>
-<div class="text-content">
+<!-- front page -->
+<div class="wrapper-menu">
     <h1 class="title">To Do List</h1>
     <p class="description">This is a simple To Do List.</p>
+    <div class="center">
+        <button href="#" class="btn btn--orange btn-sign-up">Sign Up</button>
+        <button href="#" class="btn btn--orange btn-login">Login</button>
+    </div>
+    <!-- sign-up form initially set to display:display none. switched to display:block on press Sign-Up button -->
 </div>
-    
-<section>
-    <h1 class="section-header">Your Dashboard</h1>
-    <a href class="btn btn--orange btn--todo">Create New Todo List</a>
+    <div class="wrapper-signup">Sign-up</div>
 
-    <!---->
-    <table style="width:100%">
-        <tr>
-          <th>Task</th>
-          <th>Date</th>
-          <th>Done</th>
-        </tr>
-        <tr>
-          <td class="task">Jill</td>
-          <td class="date">Smith</td>
-          <td class="done">50</td>
-        </tr>
-        <tr>
-          <td>Eve</td>
-          <td>Jackson</td>
-          <td>94</td>
-        </tr>
-      </table>
-
-    <!---->
-
-    <div class="section-popup">
-
-<div class="row" >
-    <div class="col-25">
-           <label for="firstname">First Name: </label>
-    </div>
-    <div class="col-30">
-            <input id="firstName" type="text" /> <br /> <br />
-    </div>
-</div>
-<div class="row">
-    <div class="col-25">
-        <label for="lastname">Last Name: </label>
-    </div>
-    <div class="col-30">
-            <input id="lastName" type="text" /> <br /> <br />
-    </div>
-</div>
-        <label for="email">Email: </label>
-            <input id="eMail" type="email" /> <br /> <br />
-        <label for="password">Password: </label>
-            <input id="passWord" type="password" /> <br /> <br />
-        
-        <form action="#" onsubmit="if(document.getElementById('agree').checked) { return true; } else { alert('Please indicate that you have read and agree to the Terms and Conditions and Privacy Policy'); return false; }">
-
-            <input type="checkbox" required name="checkbox" value="check" id="agree" /> I have read and agree to the <a href="t&c.html">Terms and Conditions and Privacy Policy</a>
-         
-        </form>
-        <button id="submit" class="btn--orange" >Register</button>
-      </p>
-          
-      <p>
-          Your Name is <span id="outputFirstName">___</span>. The lastname is <span id="outputLastName">___</span>, email is <span id="outputeMail">___</span>, password is <span id="outputPassWord">___</span>
-      </p>
-
-    </div>
-</section>
-    
-
-
-
-
-
-
-
-
-
-
-
+    <div class="wrapper-login">Login</div>
 </body>
 <script src="scripts/todo.js"></script>    
 </html>
