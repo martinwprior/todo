@@ -15,9 +15,42 @@
     </div>
     <!-- sign-up form initially set to display:display none. switched to display:block on press Sign-Up button -->
 </div>
-    <div class="wrapper-signup">Sign-up</div>
+    <div class="wrapper-signup">
+        <h1 class="title">To Do List</h1>
+        <p class="description">Sign Up</p>
+        <div class="center">
+            <!-- Sign up form -->
+            <div class="alert"></div>
 
-    <div class="wrapper-login">Login</div>
+            <form id="save-later-form">
+                <label class="input" for="fname">First name:</label>
+                <input class="input" type="text" id="fname" name="fname"><br><br>
+                <label class="input" for="lname">Last name:</label>
+                <input class="input" type="text" id="lname" name="lname"><br><br>
+                <label class="input" for="email">Email:</label>
+                <input class="input" type="email" id="email" name="email"><br><br>
+                <label class="input" for="pwd">PassWord:</label>
+                <input class="input" type="password" id="pwd" name="pwd"><br><br>
+                <button type="submit" id="submit">Submit</button>
+                <button type="submit" id="save">Save</button>
+
+              </form>
+        </div>
+    </div>
+
+    <div class="wrapper-login">
+        <h1 class="title">To Do List</h1>
+        <p class="description">Log-In</p>
+        <div class="center">
+            <!-- Log in form -->
+            <label class="input" for="email">Email:</label>
+            <input class="input" type="email" id="email" name="email"><br><br>
+            <label class="input" for="pwd">PassWord:</label>
+            <input class="input" type="password" id="pwd" name="pwd"><br><br>
+            <input class="input" type="submit" value="Submit">
+
+        </div>
+    </div>
 </body>
 <script src="scripts/todo.js"></script>    
 </html>
