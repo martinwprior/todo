@@ -2,7 +2,6 @@ document.getElementsByClassName("btn-sign-up")[0].addEventListener("click", func
     if(document.getElementsByClassName("wrapper-menu")[0].style.display = "none"){
             document.getElementsByClassName("wrapper-signup")[0].style.display = "block";
     } else {
-        console.log("refresh");
         refresh();
     }
 });
@@ -14,7 +13,6 @@ document.getElementsByClassName("btn-login")[0].addEventListener("click", functi
     if(document.getElementsByClassName("wrapper-menu")[0].style.display = "none"){
         document.getElementsByClassName("wrapper-login")[0].style.display = "block";
     } else {
-        console.log("refresh");
         refresh();
     }
 // display the Login form 
@@ -25,78 +23,72 @@ function refresh(){
     document.getElementsByClassName("wrapper-signup")[0].style.display = "none";
     document.getElementsByClassName("wrapper-login")[0].style.display = "none";
 };
-// ----------------------------------------------------------
+// ---------------------------to get sign-up input and put in local.storage-------------------------------
+function store(){ //stores items in the localStorage
+    var fName = document.getElementById('fName').value;
+    var lName = document.getElementById('lName').value;
+    var eMail = document.getElementById('eMail').value;
+    var passwd = document.getElementById('passwd').value;
 
-
-
-// form.js
-const formId = "save-later-form"; // ID of the form
-const url = location.href; //  href for the 
-console.log(url);
-const formIdentifier = `${url} ${formId}`; // Identifier used to identify the form
-const saveButton = document.querySelector("#save"); // select save button
-const alertBox = document.querySelector(".alert"); // select alert display div
-let form = document.querySelector(`#${formId}`); // select form
-let formElements = form.elements; // get the elements in the form
-
-/**
- * This function gets the values in the form
- * and returns them as an object with the
- * [formIdentifier] as the object key
- * @returns {Object}
- */
-const getFormData = () => {
-  let data = { [formIdentifier]: {} };
-  for (const element of formElements) {
-    if (element.name.length > 0) {
-      data[formIdentifier][element.name] = element.value;
+    const user = {
+        fName: fName,
+        lName: lName,
+        eMail: eMail,
+        passwd: passwd,
     }
-  }
-  return data;
+
+    window.localStorage.setItem(eMail,JSON.stringify(user));  //converting object to string, required for local.storage
+}
+
+function retrieveRecords(){ //retrieves items in the localStorage
+    var key = document.getElementById('retrieveKey').value; //gets key from user
+    console.log("retrieve records");
+    var records = window.localStorage.getItem(key); //searches for the key in localStorage
+    var paragraph = document.createElement("p");
+    var infor = document.createTextNode(records);
+    paragraph.appendChild(infor);
+    var element = document.getElementById("retrieve");
+    element.appendChild(paragraph);
+}
+
+function removeItem(){ //deletes item from localStorage
+    var key = document.getElementById('removeKey').value; //gets key from user
+    localStorage.removeItem(key) //passes key to the removeItem method
+    console.log("remove items");
+}
+
+function clearStorage(){ //clears the entire localStorage
+    localStorage.clear()
+    console.log("clear records");
+}
+
+window.onload =function(){ //ensures the page is loaded before functions are executed.
+    document.getElementById("toDoForm").onsubmit = store
+    document.getElementById("clearButton").onclick = clearStorage
+    document.getElementById("removeButton").onclick = removeItem
+    document.getElementById("retrieveButton").onclick = retrieveRecords
+    document.getElementById("printButton").onclick = printAll
+    document.getElementById("passwdButton").onclick = signIn
+}
+// A nice little function to print out all local.storage
+function printAll(){
+    var i;
+
+console.log("local storage");
+for (i = 0; i < localStorage.length; i++)   {
+    console.log(localStorage.key(i) + "=[" + localStorage.getItem(localStorage.key(i)) + "]");
+}
+
+console.log("session storage");
+for (i = 0; i < sessionStorage.length; i++) {
+    console.log(sessionStorage.key(i) + "=[" + sessionStorage.getItem(sessionStorage.key(i)) + "]");
+}
 };
+// https://stackoverflow.com/questions/5410820/how-can-i-show-all-the-localstorage-saved-variables
 
-saveButton.onclick = event => {
-  event.preventDefault();
-  data = getFormData();
-  console.log(data);
-  localStorage.setItem(formIdentifier, JSON.stringify(data[formIdentifier]));
-  const message = "Form draft has been saved!";
-  displayAlert(message);
+// sign In    NOT WORKING
+function signIn(){
+    var eMail = document.getElementById('eMailKey').value;
+    var passwdSignIn = document.getElementById('passwdSignIn').value;
+    console.log(eMail, passwdSignIn);
 };
-
-/**
- * This function displays a message
- * on the page for 1 second
- *
- * @param {String} message
- */
-const displayAlert = message => {
-  alertBox.innerText = message;
-  alertBox.style.display = "block";
-  setTimeout(function() {
-    alertBox.style.display = "none";
-  }, 1000);
-};
-
-/**
- * This function populates the form
- * with data from localStorage
- *
- */
-const populateForm = () => {
-  if (localStorage.key(formIdentifier)) {
-    const savedData = JSON.parse(localStorage.getItem(formIdentifier)); // get and parse the saved data from localStorage
-    for (const element of formElements) {
-        console.log(element);
-      if (element.name in savedData) {
-        element.value = savedData[element.name];
-      }
-    }
-    const message = "Form has been refilled with saved data!";
-    displayAlert(message);
-  }
-};
-
-document.onload = populateForm(); // populate the form when the document is loaded
-
-displayAlert("the quick brown fox");
